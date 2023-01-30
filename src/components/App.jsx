@@ -17,7 +17,7 @@ const Container = styled.div`
   `
 
 const Tittle = styled.h1`
-font-size: 3  2px;
+font-size: 32px;
 font-weight: 700;
 `
 
