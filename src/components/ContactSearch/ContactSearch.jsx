@@ -53,5 +53,5 @@ export const ContactSearch = ({ onInputHandler, filterValue }) => {
 
 ContactSearch.propTypes = {
     onInputHandler: PropTypes.func.isRequired,
-    filterValue: PropTypes.string.isRequired,
+    filterValue: PropTypes.string,
 }
