@@ -27,12 +27,7 @@ font-weight: 700;
 
 export class App extends Component {
   
-  
-  
- 
-  ContactFilterId = nanoid();
-
-  state = {
+   state = {
     contacts: [
       {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
       {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
@@ -42,14 +37,19 @@ export class App extends Component {
     filter: '',
    
   }
-
-  
-
   componentDidMount() {
-    
+        
     const contacts = JSON.parse(localStorage.getItem('contacts')) || this.state.contacts;
-    this.setState({ contacts: contacts });
-}
+    this.setState({ contacts });
+  }
+  
+ 
+  componentDidUpdate = (prevProps, prevState) => {
+    
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+    } 
+  }
 
  onInputChange = event => {
   const { name, value } = event.target;
@@ -89,7 +89,7 @@ export class App extends Component {
   }
    
  
-  
+   ContactFilterId = nanoid();
   
 
   render() {
